@@ -1,0 +1,52 @@
+.header {
+    width: 100vw;
+    height: 55vh;
+    position: relative;
+    max-height: 55vh;
+    overflow: hidden;
+}
+.header video {
+    height: 97.8%;
+    width: 100%;
+    object-fit: cover;
+}
+.header .overlay {
+    position: absolute;
+    width: 40%;
+    height: 97.8%;
+    background-color: rgba(138,235,254, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 3;
+    padding: 0.5rem;
+}
+
+.header .overlay .overlay-text-block {
+    margin-top: 8rem;
+    text-align: right;
+    color: #FFF;
+}
+.header .overlay .overlay-text-block .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.wave-svg {
+    position: absolute;
+    width: 100vw;
+    bottom: -5px;
+    left: 0px;
+    z-index: 2;
+}
+@media only screen and (max-width: 1080px) {
+    .wave-svg {
+        bottom: 3px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .header .overlay {
+        width: 70%;
+    }
+    .wave-svg {
+        bottom: 4px;
+    }
+}

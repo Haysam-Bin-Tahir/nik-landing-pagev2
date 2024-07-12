@@ -1,0 +1,13 @@
+.video-banner {
+    height: 23rem;
+}
+.video-banner video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media only screen and (max-width: 780px) {
+    .video-banner {
+        margin-top: 7rem;
+    }
+}
