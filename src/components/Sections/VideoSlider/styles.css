@@ -2,7 +2,7 @@
     padding: 2.1rem;
     min-height: 29.5rem;
     display: flex;
-    gap: 1rem;
+    gap: 0.3rem;
     --slide-height: 30rem;
 }
 .section-video-slider > div {

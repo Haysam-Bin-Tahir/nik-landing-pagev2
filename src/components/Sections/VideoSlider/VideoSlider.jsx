@@ -39,6 +39,9 @@ const carouselVideos = [
 // slides
 const backgroundPlayback = true;
 
+// Carousel interval in ms
+const interval = 2000;
+
 export default function VideoSlider() {
     const [currSlide, setCurrSlide] = useState(0);
     const videoRefs = useRef([]);
@@ -84,6 +87,10 @@ export default function VideoSlider() {
         }
     }
 
+    const handleSlideChanged = (slideIdx) => {
+        setCurrSlide(slideIdx);
+    }
+
     return (
         <div id='product' className="section-video-slider mb-2">
             <div className="carousel-container">
@@ -103,6 +110,11 @@ export default function VideoSlider() {
                             showArrows={false}
                             showThumbs={false}
                             showIndicators={false}
+                            autoPlay={true}
+                            infiniteLoop={true}
+                            interval={interval}
+                            stopOnHover={true}
+                            onChange={handleSlideChanged}
                         >
                             {carouselVideos.map(({ src, title, text }, idx) => (
                                 <div key={idx} className='slide'>
