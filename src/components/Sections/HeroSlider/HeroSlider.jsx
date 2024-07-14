@@ -16,75 +16,37 @@ const carouselVideos = [
         src: './slide-1.jpg',
         type: 'video/mp4',
         title: 'Safe and Secure Space',
-        text: 'We take pride in providing a safe and inclusive space for all our users. Our verification process ensures that everyone is genuine while respecting individual privacy. You can trust us to provide a secure environment for connecting with others.'
+        text: 'We take pride in providing a safe and inclusive space for all our users. Our verification process ensures that everyone is genuine while respecting individual privacy. You can trust us to provide a secure environment for connecting with others.',
+        href: '#',
     },
     {
         src: './slide-2.jpeg',
         title: 'Title 2',
-        text: 'Lorem Ipsum dolor sit amet'
+        text: 'Lorem Ipsum dolor sit amet',
+        href: '#',
     },
     {
         src: './slide-3.jpg',
         title: 'Title 3',
-        text: 'Lorem Ipsum dolor sit amet'
+        text: 'Lorem Ipsum dolor sit amet',
+        href: '#',
     }
 ];
 
-// If you want the video to start
-// from the beginning every time
-// the carousel slides, set this
-// value to false. If its value is
-// true, the videos will keep playing
-// between transitions to different
-// slides
 const backgroundPlayback = true;
 
 // Carousel interval in ms
 const interval = 2000;
 
-export default function VideoSlider() {
+export default function HeroSlider() {
     const [currSlide, setCurrSlide] = useState(0);
-    const videoRefs = useRef([]);
-    const [currTitle, setCurrTitle] = useState(carouselVideos[0].title);
-    const [currText, setCurrText] = useState(carouselVideos[0].text);
-    const [fadeOut, setFadeOut] = useState(false);
 
     const next = () => {
-        const prevSlide = currSlide;
-        const incomingSlideIdx = (prevSlide + 1) % carouselVideos.length;
-        setFadeOut(true); // Start the fade-out effect
-        setTimeout(() => {
-            setCurrTitle(carouselVideos[incomingSlideIdx].title);
-            setCurrText(carouselVideos[incomingSlideIdx].text);
-            setFadeOut(false); // Reset the fade-out effect
-        }, 300); // Wait for fade-out to complete before changing text
-
         setCurrSlide(prevSlide => (prevSlide + 1) % carouselVideos.length);
-
-        // Resets the playback
-        if (!backgroundPlayback && videoRefs.current[currSlide]) {
-            videoRefs.current[currSlide].currentTime = 0;
-            videoRefs.current[currSlide].play();
-        }
     }
 
     const prev = () => {
-        const prevSlide = currSlide;
-        const incomingSlideIdx = (prevSlide - 1 + carouselVideos.length) % carouselVideos.length;
-        setFadeOut(true); // Start the fade-out effect
-        setTimeout(() => {
-            setCurrTitle(carouselVideos[incomingSlideIdx].title);
-            setCurrText(carouselVideos[incomingSlideIdx].text);
-            setFadeOut(false); // Reset the fade-out effect
-        }, 300); // Wait for fade-out to complete before changing text
-
         setCurrSlide(prevSlide => (prevSlide - 1 + carouselVideos.length) % carouselVideos.length);
-
-        // Resets the playback
-        if (!backgroundPlayback && videoRefs.current[currSlide]) {
-            videoRefs.current[currSlide].currentTime = 0;
-            videoRefs.current[currSlide].play();
-        }
     }
 
     const handleSlideChanged = (slideIdx) => {
@@ -116,7 +78,7 @@ export default function VideoSlider() {
                             stopOnHover={true}
                             onChange={handleSlideChanged}
                         >
-                            {carouselVideos.map(({ src, title, text }, idx) => (
+                            {carouselVideos.map(({ src, title, text, href }, idx) => (
                                 <div key={idx} className='slide'>
                                     <img src={src} />
                                     <div className='slide-content'>
@@ -124,14 +86,14 @@ export default function VideoSlider() {
                                             <h3 className='slide-title'>{title}</h3>
                                             <p className='slide-text'>{text}</p>
                                         </div>
-                                        <button className='slide-btn'>
+                                        <a className='slide-btn' href={href}>
                                             <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                                 viewBox="0 0 330 330" xml:space="preserve">
                                                 <path id="XMLID_27_" d="M15,180h263.787l-49.394,49.394c-5.858,5.857-5.858,15.355,0,21.213C232.322,253.535,236.161,255,240,255
 	s7.678-1.465,10.606-4.394l75-75c5.858-5.857,5.858-15.355,0-21.213l-75-75c-5.857-5.857-15.355-5.857-21.213,0
 	c-5.858,5.857-5.858,15.355,0,21.213L278.787,150H15c-8.284,0-15,6.716-15,15S6.716,180,15,180z"/>
                                             </svg>
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             ))}

@@ -1,9 +1,0 @@
-.section-about-us {
-    margin-bottom: 4rem;
-}
-
-@media only screen and (max-width: 768px) {
-    .section-about-us {
-        margin-top: 2rem;
-    }
-}
