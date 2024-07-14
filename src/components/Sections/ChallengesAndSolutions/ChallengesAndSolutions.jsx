@@ -1,6 +1,16 @@
 import './styles.css';
+import { useState } from 'react';
 
 export default function ChallengesAndSolutions() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayButtonClick = () => {
+    setIsPlaying(true);
+    const video = document.getElementById('video');
+    video.play();
+    video.controls = true;
+  };
+
   return (
     <div className='container'>
       <div className='left-section'>
@@ -72,11 +82,18 @@ export default function ChallengesAndSolutions() {
       </div>
       <div className='right-section'>
         <h3 className='card__heading'>Title</h3>
-        <img
-          className='card__image'
-          src='https://img.freepik.com/free-photo/colorful-design-with-spiral-design_188544-9588.jpg'
-          alt='Card'
-        />
+        <div className='card__video-container'>
+          <video
+            id='video'
+            className='card__video'
+            src='https://www.w3schools.com/html/mov_bbb.mp4'
+          ></video>
+          {!isPlaying && (
+            <button className='play-button' onClick={handlePlayButtonClick}>
+              &#9658;
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
