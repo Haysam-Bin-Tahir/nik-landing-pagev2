@@ -19,22 +19,30 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <img src='./my-line.svg' /> */}
-      <BrushStroke color='#c1aaf2' />
+      {/* You can open the svg file in a code editor and change the
+          fill color for the svg. I have placed 3 variants of the brush
+          stroke so you can pick whichever you like.
+          1. my-line-2.svg
+          2. my-line-3.svg
+          3. BrushStroke (component)
+      */}
+      <img src='./my-line-2.svg' className='header-svg' />
+      {/* <BrushStroke color='#c1aaf2' /> */}
       <VideoSlider />
-      {/* <img src='./my-line.svg' /> */}
-      <BrushStroke color='#c1aaf2' />
+      <img src='./my-line-3.svg' />
+      {/* <BrushStroke color='#c1aaf2' /> */}
       <ChallengesAndSolutions />
-      <BrushStroke color='#c1aaf2' />
+      <img src='./my-line-2.svg' />
+      {/* <BrushStroke color='#c1aaf2' /> */}
       <FeatureCards />
-      {/* <img src='./my-line.svg' /> */}
-      <BrushStroke color='#c1aaf2' />
+      <img src='./my-line-3.svg' />
+      {/* <BrushStroke color='#c1aaf2' /> */}
       <InfoCards />
-      {/* <img src='./my-line.svg' /> */}
-      <BrushStroke color='#c1aaf2' />
+      <img src='./my-line-3.svg' />
+      {/* <BrushStroke color='#c1aaf2' /> */}
       <SceneText />
-      <BrushStroke color='#c1aaf2' />
-      {/* <img src='./my-line.svg' /> */}
+      {/* <BrushStroke color='#c1aaf2' /> */}
+      <img src='./my-line-3.svg' />
     </>
   );
 }

@@ -15,7 +15,7 @@ export default function ChallengesAndSolutions() {
     <div className='container'>
       <div className='left-section'>
         <div className='solutions-wrapper'>
-          <div className='solutions'>Solutions</div>
+          <div className='solutions'>Solution</div>
           <div className='image-container'>
             <img
               className='image'
@@ -76,8 +76,13 @@ export default function ChallengesAndSolutions() {
             </div>
           </div>
         </div>
+        <span className='arrow-up' />
         <div className='challenges-wrapper'>
-          <div className='challenges'>Challenges</div>
+          <div className='challenges'>
+            <span className='arrow arrow-up' />
+            Challenges
+            <span className='arrow arrow-down' />
+            </div>
         </div>
       </div>
       <div className='right-section'>

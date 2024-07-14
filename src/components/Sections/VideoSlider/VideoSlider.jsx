@@ -92,7 +92,7 @@ export default function VideoSlider() {
     }
 
     return (
-        <div id='product' className="section-video-slider mb-2">
+        <div id='product' className="section-video-slider">
             <div className="carousel-container">
                 <div className="styled-carousel">
                     <button className='control-arrow control-arrow-left' onClick={prev}>

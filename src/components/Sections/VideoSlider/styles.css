@@ -1,5 +1,6 @@
 .section-video-slider {
     padding: 2.1rem;
+    padding-bottom: 0;
     min-height: 29.5rem;
     display: flex;
     gap: 0.3rem;

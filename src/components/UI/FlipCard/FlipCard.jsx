@@ -6,8 +6,8 @@ export default function FlipCard({
     description = "this is description",
     cardHeight = '22rem',
     width = "300px",
-    minWidth = "200px"
-
+    minWidth = "200px",
+    img = null,
 }) {
     const [focus, setFocus] = useState(false);
     const toggleFocus = () => setFocus(prev => !prev)
@@ -15,6 +15,9 @@ export default function FlipCard({
         <div className='card-container' style={{ minWidth: 0, width, minWidth }}>
             <div onClick={toggleFocus} className={`card ${focus ? "focus" : ""}`} style={{ height: cardHeight }}>
                 <div className="card__side card__side--front" style={{ height: cardHeight }}>
+                    <div className='card__img'>
+                        {img}
+                    </div>
                     <h4 className="card__heading">
                         {title}
                     </h4>

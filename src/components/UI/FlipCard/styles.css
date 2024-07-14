@@ -20,6 +20,11 @@
     overflow: hidden;
     box-shadow: 0.4px 0.4px 1px 0px rgba(169,169,169,1), -0.4px -0.4px 1px 0px rgba(169,169,169,1);
   }
+  .card__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   @media only screen and (max-width: 510px) {
     .card-container {
         width: 100% !important;

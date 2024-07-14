@@ -45,6 +45,9 @@
 .image {
   width: 110%;
   background-color: #fff;
+  height: auto;
+  object-fit: contain;
+  background-color: #fff;
   padding: 8px;
 }
 
@@ -99,6 +102,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: sans-serif;
 }
 
 .step-text {
@@ -153,11 +157,14 @@
 .solutions {
   position: relative;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: medium;
   color: #8d65ea;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
+  border: 1px solid var(--color-primary);
+  padding: 14px 2px;
+  margin-left: 3.5px;
 }
 
 .solutions::before,
@@ -173,13 +180,13 @@
 .challenges {
   position: relative;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: medium;
   color: #8d65ea;
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  border: 1px solid #000;
-  padding: 8px 2px;
-  margin: 8px;
+  border: 1px solid var(--color-primary);
+  padding: 14px 2px;
+  margin: 8px 3.5px 8px 8px;
 }
 
 .challenges::before,
@@ -188,7 +195,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 4px;
   background-color: #8d65ea;
 }
 
@@ -225,4 +232,24 @@
   .image-container {
     height: 50px;
   }
+}
+
+.challenges .arrow {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.challenges .arrow-up {
+  border-bottom: 12px solid var(--color-primary);
+  top: -108px;
+}
+
+.challenges .arrow-down {
+  border-top: 12px solid var(--color-primary);
+  bottom: -108px;
 }
