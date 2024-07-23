@@ -12,7 +12,7 @@ export default function ChallengesAndSolutions() {
   };
 
   return (
-    <div className='container'>
+    <div id='challenges' className='container'>
       <div className='left-section'>
         <div className='solutions-wrapper'>
           <div className='solutions'>Solution</div>
@@ -82,7 +82,7 @@ export default function ChallengesAndSolutions() {
             <span className='arrow arrow-up' />
             Challenges
             <span className='arrow arrow-down' />
-            </div>
+          </div>
         </div>
       </div>
       <div className='right-section'>

@@ -65,21 +65,24 @@ const StackedCards = () => {
   }, [expandedCardIndex, isTransitioning]);
 
   return (
-    <div className='stacked-card-container'>
-      {carouselVideos.map((video, idx) => (
-        <div
-          key={idx}
-          className={`stacked-card ${
-            expandedCardIndex === idx ? 'expanded' : ''
-          }`}
-          onMouseEnter={() => handleMouseEnter(idx)}
-        >
-          <Card
-            {...video}
-            hideDescription={isTransitioning && expandedCardIndex === idx}
-          />
-        </div>
-      ))}
+    <div>
+      <h3 className='section-info-heading card__heading'>Title</h3>
+      <div className='stacked-card-container'>
+        {carouselVideos.map((video, idx) => (
+          <div
+            key={idx}
+            className={`stacked-card ${
+              expandedCardIndex === idx ? 'expanded' : ''
+            }`}
+            onMouseEnter={() => handleMouseEnter(idx)}
+          >
+            <Card
+              {...video}
+              hideDescription={isTransitioning && expandedCardIndex === idx}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

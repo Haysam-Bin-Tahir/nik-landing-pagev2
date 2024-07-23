@@ -2,7 +2,7 @@
   display: flex;
   gap: 20px;
   --slide-height: 30rem;
-  padding: 33.6px;
+  padding: 0 33.6px;
 }
 
 .stacked-card {
