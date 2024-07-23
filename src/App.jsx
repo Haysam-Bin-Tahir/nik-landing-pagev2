@@ -7,6 +7,8 @@ import FeatureCards from './components/Sections/FeatureCards/FeatureCards';
 import BrushStroke from './components/UI/BrushStroke/BrushStroke';
 import ChallengesAndSolutions from './components/Sections/ChallengesAndSolutions/ChallengesAndSolutions';
 import HeroSlider from './components/Sections/HeroSlider/HeroSlider';
+import Card from './components/UI/Card/Card';
+import StackedCards from './components/Sections/StackedCards/StackedCards';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
       <img src='./my-line-2.svg' />
       {/* <BrushStroke color='#c1aaf2' /> */}
       <FeatureCards />
+      <img src='./my-line-3.svg' />
+      <StackedCards />
       <img src='./my-line-3.svg' />
       {/* <BrushStroke color='#c1aaf2' /> */}
       <InfoCards />

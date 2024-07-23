@@ -1,0 +1,19 @@
+.stacked-card-container {
+  display: flex;
+  gap: 20px;
+  --slide-height: 30rem;
+  padding: 33.6px;
+}
+
+.stacked-card {
+  flex: 1;
+  gap: 16px;
+  height: 100%;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  transition: flex 0.7s ease;
+}
+
+.stacked-card.expanded {
+  flex: 2;
+}
