@@ -15,7 +15,7 @@ html {
   width: 100vw;
 }
 body {
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   background-color: var(--color-bg);
 }
 

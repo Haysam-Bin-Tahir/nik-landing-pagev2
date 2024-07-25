@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 
 import './styles.css';
@@ -15,7 +15,7 @@ const navLinks = [
   },
   {
     label: 'Support',
-    href: 'https://www.google.com',
+    href: 'https://www.youtube.com',
     target: '_blank',
   },
   {
@@ -27,6 +27,7 @@ const navLinks = [
 export default function Navbar(props) {
   const [activeHref, setActiveHref] = useState('#home');
   const [openMenu, setOpenMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleHrefChanged = (href) => () => {
     setActiveHref(href);
@@ -53,8 +54,23 @@ export default function Navbar(props) {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className='navbar'>
+    <nav className={clsx('navbar', { scrolled })}>
       <img src='/logo' alt='logo' width={100} height='auto' />
       <ul className='desktop-nav navbar-links'>
         {navLinks.map((navLink, idx) => (

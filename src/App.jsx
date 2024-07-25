@@ -21,7 +21,7 @@ function App() {
           2. my-line-3.svg
           3. BrushStroke (component - color can be controlled via color prop)
       */}
-      <img src='./my-line-2.svg' />
+      {/* <img src='./my-line-2.svg' /> */}
       <VideWithContent
         videoSrc='./meeting.mp4'
         title='Welcome to Our Site'
