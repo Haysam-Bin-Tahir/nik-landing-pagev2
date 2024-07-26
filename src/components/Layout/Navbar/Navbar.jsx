@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import clsx from 'clsx';
-
 import './styles.css';
 
 const navLinks = [
   {
     label: 'Home',
     href: '#home',
+  },
+  {
+    label: 'Other',
+    href: '/other',
+    target: '_self',
   },
   {
     label: 'Career',
@@ -22,20 +27,24 @@ const navLinks = [
     label: 'Challenges',
     href: '#challenges',
   },
+  {
+    label: 'Test',
+    href: '#test',
+  },
 ];
 
 export default function Navbar(props) {
   const [activeHref, setActiveHref] = useState('#home');
   const [openMenu, setOpenMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleHrefChanged = (href) => () => {
     setActiveHref(href);
   };
 
-  const scrollToElement = (e, href, openMenu = false) => {
-    e.preventDefault();
-    if (openMenu) setOpenMenu(false);
+  const scrollToElement = (href) => {
     const element = document.querySelector(href);
     if (element) {
       const headerHeight = 70; // Height of your fixed header
@@ -47,11 +56,30 @@ export default function Navbar(props) {
         top: elementTop - headerHeight,
         behavior: 'smooth',
       });
-
-      // Update URL
-      const newUrl = window.location.origin + window.location.pathname + href;
-      window.history.pushState({ path: newUrl }, '', newUrl);
     }
+  };
+
+  const handleNavClick = (e, navLink) => {
+    e.preventDefault();
+    if (navLink.href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/');
+      }
+      // Scroll to the section after navigation
+      setTimeout(() => scrollToElement(navLink.href), 0);
+    } else {
+      window.open(navLink.href, navLink.target);
+    }
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
+    setActiveHref('#home');
+    // Scroll to top if already on home page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   };
 
   useEffect(() => {
@@ -69,9 +97,23 @@ export default function Navbar(props) {
     };
   }, []);
 
+  useEffect(() => {
+    // Handle scrolling to hash if present in URL
+    if (location.hash) {
+      scrollToElement(location.hash);
+    }
+  }, [location]);
+
   return (
     <nav className={clsx('navbar', { scrolled })}>
-      <img src='/logo' alt='logo' width={100} height='auto' />
+      <img
+        src='/logo'
+        alt='logo'
+        width={100}
+        height='auto'
+        style={{ cursor: 'pointer' }}
+        onClick={handleLogoClick}
+      />
       <ul className='desktop-nav navbar-links'>
         {navLinks.map((navLink, idx) => (
           <li
@@ -81,12 +123,18 @@ export default function Navbar(props) {
             })}
             onClick={handleHrefChanged(navLink.href)}
           >
-            <a
-              href={navLink.href}
-              onClick={(e) => scrollToElement(e, navLink.href)}
-            >
-              {navLink.label}
-            </a>
+            {navLink.href.startsWith('#') ? (
+              <a
+                href={navLink.href}
+                onClick={(e) => handleNavClick(e, navLink)}
+              >
+                {navLink.label}
+              </a>
+            ) : (
+              <Link to={navLink.href} target={navLink.target}>
+                {navLink.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
@@ -151,12 +199,18 @@ export default function Navbar(props) {
               })}
               onClick={handleHrefChanged(navLink.href)}
             >
-              <a
-                href={navLink.href}
-                onClick={(e) => scrollToElement(e, navLink.href, openMenu)}
-              >
-                {navLink.label}
-              </a>
+              {navLink.href.startsWith('#') ? (
+                <a
+                  href={navLink.href}
+                  onClick={(e) => handleNavClick(e, navLink)}
+                >
+                  {navLink.label}
+                </a>
+              ) : (
+                <Link to={navLink.href} target={navLink.target}>
+                  {navLink.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
