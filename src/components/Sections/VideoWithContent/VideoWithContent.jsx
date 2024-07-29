@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css'; // Make sure to create and import this CSS file
+import { Link } from 'react-router-dom';
 
 const VideWithContent = ({ videoSrc, title, description, link }) => {
   return (
@@ -13,9 +14,9 @@ const VideWithContent = ({ videoSrc, title, description, link }) => {
           <h1 className='title'>{title}</h1>
           <p className='description'>{description}</p>
         </div>
-        <a className='button-link' href={link} target='_blank'>
+        <Link className='button-link' to={link}>
           Learn More
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ export default function Homepage() {
         videoSrc='./meeting.mp4'
         title='Welcome to Our Site'
         description='Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-        link='https://www.google.com'
+        link='/other/#other-page-test'
       />
       <img src='./my-line-2.svg' className='header-svg' />
       {/* <BrushStroke color='#c1aaf2' /> */}

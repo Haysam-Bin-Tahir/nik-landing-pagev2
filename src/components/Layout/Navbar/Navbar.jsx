@@ -6,7 +6,7 @@ import './styles.css';
 const navLinks = [
   {
     label: 'Home',
-    href: '#home',
+    href: '/#home',
   },
   {
     label: 'Other',
@@ -25,11 +25,15 @@ const navLinks = [
   },
   {
     label: 'Challenges',
-    href: '#challenges',
+    href: '/#challenges',
+  },
+  {
+    label: 'OtherPageSection',
+    href: '/other#other-page-test',
   },
   {
     label: 'Test',
-    href: '#test',
+    href: '/#test',
   },
 ];
 
@@ -60,6 +64,7 @@ export default function Navbar(props) {
   };
 
   const handleNavClick = (e, navLink) => {
+    console.log('handleNavClick', navLink);
     e.preventDefault();
     if (navLink.href.startsWith('#')) {
       if (location.pathname !== '/') {
@@ -98,9 +103,17 @@ export default function Navbar(props) {
   }, []);
 
   useEffect(() => {
+    console.log('location', {
+      location,
+      locationHash: location.hash,
+      locationPathname: location.pathname,
+    });
     // Handle scrolling to hash if present in URL
     if (location.hash) {
       scrollToElement(location.hash);
+      setActiveHref(`${location.hash}`);
+    } else if (location.pathname !== '/') {
+      setActiveHref(location.pathname);
     }
   }, [location]);
 
@@ -115,28 +128,39 @@ export default function Navbar(props) {
         onClick={handleLogoClick}
       />
       <ul className='desktop-nav navbar-links'>
-        {navLinks.map((navLink, idx) => (
-          <li
-            key={idx}
-            className={clsx('nav-link', {
-              active: activeHref === navLink.href,
-            })}
-            onClick={handleHrefChanged(navLink.href)}
-          >
-            {navLink.href.startsWith('#') ? (
-              <a
-                href={navLink.href}
-                onClick={(e) => handleNavClick(e, navLink)}
-              >
-                {navLink.label}
-              </a>
-            ) : (
-              <Link to={navLink.href} target={navLink.target}>
-                {navLink.label}
-              </Link>
-            )}
-          </li>
-        ))}
+        {navLinks.map((navLink, idx) => {
+          console.log('navLink', {
+            navLink,
+            includeHash: navLink.href.includes('#'),
+            split: navLink.href.split('#'),
+          });
+          return (
+            <li
+              key={idx}
+              className={clsx('nav-link', {
+                active:
+                  activeHref ===
+                  (navLink.href.includes('#')
+                    ? '#' + navLink.href.split('#')[1]
+                    : navLink.href),
+              })}
+              onClick={handleHrefChanged(navLink.href)}
+            >
+              {navLink.href.startsWith('#') ? (
+                <a
+                  href={navLink.href}
+                  onClick={(e) => handleNavClick(e, navLink)}
+                >
+                  {navLink.label}
+                </a>
+              ) : (
+                <Link to={navLink.href} target={navLink.target}>
+                  {navLink.label}
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
       <button className='btn-nav-menu' onClick={() => setOpenMenu(true)}>
         <svg
@@ -195,7 +219,11 @@ export default function Navbar(props) {
             <li
               key={idx}
               className={clsx('nav-link', {
-                active: activeHref === navLink.href,
+                active:
+                  activeHref ===
+                  (navLink.href.includes('#')
+                    ? '#' + navLink.href.split('#')[1]
+                    : navLink.href),
               })}
               onClick={handleHrefChanged(navLink.href)}
             >

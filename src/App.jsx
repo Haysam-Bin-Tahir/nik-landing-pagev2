@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' exact element={<Homepage />} />
-        <Route path='/other' component={<OtherPage />} />
+        <Route path='/other' element={<OtherPage />} />
       </Routes>
     </Router>
   );
