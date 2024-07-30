@@ -6,7 +6,7 @@ import './styles.css';
 const navLinks = [
   {
     label: 'Home',
-    href: '/#home',
+    href: '/',
   },
   {
     label: 'Other',
@@ -103,17 +103,16 @@ export default function Navbar(props) {
   }, []);
 
   useEffect(() => {
-    console.log('location', {
-      location,
-      locationHash: location.hash,
-      locationPathname: location.pathname,
-    });
     // Handle scrolling to hash if present in URL
     if (location.hash) {
       scrollToElement(location.hash);
       setActiveHref(`${location.hash}`);
-    } else if (location.pathname !== '/') {
+    } else {
       setActiveHref(location.pathname);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     }
   }, [location]);
 
