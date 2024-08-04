@@ -1,12 +1,12 @@
 import './styles.css';
 
-const Card = ({ image, title }) => {
+const StyledCard = ({ image, title }) => {
   return (
-    <div className='card'>
-      <img src={image} alt={title} className='card-image' />
-      <div className='card-content'>
-        <div className='card-title-container'>
-          <h2 className='card-title'>{title}</h2>
+    <div className='styled-card'>
+      <img src={image} alt={title} className='styled-card-image' />
+      <div className='styled-card-content'>
+        <div className='styled-card-title-container'>
+          <h2 className='styled-card-title'>{title}</h2>
         </div>
         {/* <div className='triangle'></div> */}
       </div>
@@ -14,4 +14,4 @@ const Card = ({ image, title }) => {
   );
 };
 
-export default Card;
+export default StyledCard;

@@ -1,10 +1,10 @@
-.card {
+.styled-card {
   width: 260px;
   height: 320px;
   margin: 0.5rem;
 }
 
-.card-image {
+.styled-card-image {
   width: 100%;
   height: 220px;
   object-fit: cover;
@@ -12,7 +12,7 @@
   z-index: 99;
 }
 
-.card-content {
+.styled-card-content {
   margin-left: 10px;
   margin-top: -20px;
   width: 260px;
@@ -26,7 +26,7 @@
   z-index: 100;
 }
 
-.card-title-container {
+.styled-card-title-container {
   position: relative;
   display: flex;
   align-items: center;
@@ -38,14 +38,14 @@
   z-index: 9999;
 }
 
-.card-title {
+.styled-card-title {
   color: #333;
   font-size: 1.6rem;
   font-weight: 400;
   z-index: 1000;
 }
 
-.card-content::before {
+.styled-card-content::before {
   content: '';
   position: absolute;
   width: 2em;
