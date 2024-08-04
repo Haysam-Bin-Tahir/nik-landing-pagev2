@@ -8,6 +8,7 @@ import ChallengesAndSolutions from '../components/Sections/ChallengesAndSolution
 import HeroSlider from '../components/Sections/HeroSlider/HeroSlider';
 import StackedCards from '../components/Sections/StackedCards/StackedCards';
 import VideWithContent from '../components/Sections/VideoWithContent/VideoWithContent';
+import StyledCards from '../components/Sections/StyledCards/StyledCards';
 
 export default function Homepage() {
   return (
@@ -35,6 +36,8 @@ export default function Homepage() {
       <img src='./my-line-2.svg' />
       {/* <BrushStroke color='#c1aaf2' /> */}
       <FeatureCards />
+      <img src='./my-line-2.svg' />
+      <StyledCards />
       <img src='./my-line-3.svg' />
       <StackedCards />
       <img src='./my-line-3.svg' />

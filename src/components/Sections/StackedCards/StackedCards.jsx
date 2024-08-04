@@ -74,10 +74,14 @@ const StackedCards = () => {
             className={`stacked-card ${
               expandedCardIndex === idx ? 'expanded' : ''
             }`}
+            style={{
+              border: expandedCardIndex === idx ? '6px solid #000' : '',
+            }}
             onMouseEnter={() => handleMouseEnter(idx)}
           >
             <Card
               {...video}
+              full={expandedCardIndex !== idx}
               hideDescription={isTransitioning && expandedCardIndex === idx}
             />
           </div>
