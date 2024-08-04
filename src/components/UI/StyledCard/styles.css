@@ -35,7 +35,7 @@
   width: 100%;
   height: 100%;
   background-color: #fff;
-  z-index: 9999;
+  z-index: 10;
 }
 
 .styled-card-title {
@@ -48,14 +48,24 @@
 .styled-card-content::before {
   content: '';
   position: absolute;
-  width: 2em;
-  height: 2em;
-  top: calc(-0.5em + 2px);
-  right: 2em;
-  transform: rotate(-45deg);
-  z-index: 0;
-  border-top: 2px solid #c4acf9;
-  border-right: 2px solid #c4acf9;
-  background-color: #fff;
+  z-index: 9;
+  width: 0; 
+  height: 0; 
+  border-left: 34px solid transparent;
+  border-right: 34px solid transparent;
+  border-bottom: 12px solid #c4acf9;
+  top: -12px;
+  right: 26px;
+}
+.styled-card-content::after {
   content: '';
+  position: absolute;
+  z-index: 9;
+  width: 0; 
+  height: 0; 
+  border-left: 32px solid transparent;
+  border-right: 32px solid transparent;
+  border-bottom: 12px solid #fff;
+  top: -10px;
+  right: 28px;
 }
