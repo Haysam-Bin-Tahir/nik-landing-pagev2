@@ -3,7 +3,7 @@ import './styles.css';
 
 const Card = ({ className, src, title, text, href, hideDescription, full }) => (
   <div className={`slide ${className || ''}`}>
-    <img src={src} alt={title} style={{ height: full ? '100%' : '' }} />
+    <img src={src} alt={title} style={{ height: full ? '100%' : '', filter: `grayscale(${!full ? 0 : 0.8})` }} />
     {full && <div className='overlay' />}
     {full && (
       <div className='collapsed'>
