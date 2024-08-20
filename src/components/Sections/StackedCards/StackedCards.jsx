@@ -44,7 +44,7 @@ const carouselVideos = [
 ];
 
 const StackedCards = () => {
-  const [expandedCardIndex, setExpandedCardIndex] = useState(0);
+  const [expandedCardIndex, setExpandedCardIndex] = useState();
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleMouseEnter = (index) => {
